@@ -32,11 +32,19 @@
         radial-gradient(circle at 85% 10%, rgba(236, 72, 153, 0.24), transparent 30%),
         linear-gradient(140deg, #140917, #27102b 55%, #140917);
       background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23f9a8d4' stroke-width='1.4' opacity='0.32'%3E%3Ccircle cx='44' cy='44' r='18'/%3E%3Ccircle cx='44' cy='44' r='6'/%3E%3Ccircle cx='156' cy='156' r='18'/%3E%3Ccircle cx='156' cy='156' r='6'/%3E%3Cpath d='M100 24c10 7 14 19 10 30s-14 19-26 19c-4-11 0-23 10-30 6-4 6-12 6-19z' fill='%23fbcfe8' fill-opacity='0.3' stroke='none'/%3E%3Cpath d='M100 176c-10-7-14-19-10-30s14-19 26-19c4 11 0 23-10 30-6 4-6 12-6 19z' fill='%23fbcfe8' fill-opacity='0.3' stroke='none'/%3E%3Cpath d='M24 100c7-10 19-14 30-10s19 14 19 26c-11 4-23 0-30-10-4-6-12-6-19-6z' fill='%23fbcfe8' fill-opacity='0.3' stroke='none'/%3E%3Cpath d='M176 100c-7 10-19 14-30 10s-19-14-19-26c11-4 23 0 30 10 4 6 12 6 19 6z' fill='%23fbcfe8' fill-opacity='0.3' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
-      color: #fde7f6;
+      color: #fff6fc;
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       line-height: 1.6;
       padding-bottom: 4rem;
       background-blend-mode: screen, normal;
+    }
+
+    main {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 0 18px 40px;
+      display: grid;
+      gap: 22px;
     }
 
     header {
@@ -50,6 +58,11 @@
       top: 0;
       z-index: 10;
       border-bottom: 1px solid var(--surface);
+      max-width: 1180px;
+      margin: 0 auto 8px;
+      width: calc(100% - 40px);
+      border-radius: 0 0 18px 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
     .brand {
@@ -142,8 +155,8 @@
     }
 
     .panel {
-      background: rgba(255, 240, 246, 0.06);
-      border: 1px solid rgba(244, 114, 182, 0.25);
+      background: rgba(255, 240, 246, 0.1);
+      border: 1px solid rgba(244, 114, 182, 0.3);
       border-radius: 18px;
       padding: 18px;
       backdrop-filter: blur(12px);
@@ -162,8 +175,9 @@
     .stat {
       padding: 14px;
       border-radius: 14px;
-      background: linear-gradient(145deg, rgba(244, 114, 182, 0.18), rgba(219, 39, 119, 0.16));
-      border: 1px solid rgba(244, 114, 182, 0.25);
+      background: linear-gradient(145deg, rgba(244, 114, 182, 0.2), rgba(219, 39, 119, 0.22));
+      border: 1px solid rgba(244, 114, 182, 0.32);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
 
     .stat .label {
@@ -211,7 +225,7 @@
     form {
       display: grid;
       gap: 12px;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       align-items: end;
     }
 
@@ -224,40 +238,49 @@
 
     input, select {
       width: 100%;
-      background: rgba(255, 240, 246, 0.08);
-      border: 1px solid rgba(244, 114, 182, 0.25);
-      border-radius: 10px;
-      padding: 10px 12px;
-      color: #fde7f6;
+      background: rgba(255, 240, 246, 0.12);
+      border: 1px solid rgba(244, 114, 182, 0.35);
+      border-radius: 12px;
+      padding: 12px 14px;
+      color: #fff6fc;
       font-size: 14px;
       outline: none;
-      transition: border 0.2s ease, box-shadow 0.2s ease;
+      transition: border 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
     }
 
     input:focus, select:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.22);
+      box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.24);
+      transform: translateY(-1px);
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
       font-size: 14px;
+      background: rgba(255, 240, 246, 0.06);
+      border-radius: 12px;
+      overflow: hidden;
     }
 
     th, td {
       text-align: left;
-      padding: 12px;
+      padding: 12px 10px;
     }
 
     th {
-      color: var(--muted);
-      font-weight: 600;
-      border-bottom: 1px solid var(--surface);
+      color: #fee2f4;
+      font-weight: 700;
+      border-bottom: 1px solid rgba(244, 114, 182, 0.35);
+      background: rgba(27, 16, 33, 0.65);
     }
 
     tr + tr td {
       border-top: 1px solid var(--surface);
+    }
+
+    tbody tr:nth-child(even) td {
+      background: rgba(255, 255, 255, 0.03);
     }
 
     .badge {
@@ -302,8 +325,8 @@
     }
 
     .product-card {
-      background: rgba(255, 240, 246, 0.06);
-      border: 1px solid rgba(244, 114, 182, 0.24);
+      background: rgba(255, 240, 246, 0.08);
+      border: 1px solid rgba(244, 114, 182, 0.28);
       padding: 12px;
       border-radius: 14px;
       display: grid;
@@ -322,8 +345,8 @@
     .totals {
       display: grid;
       gap: 6px;
-      background: rgba(255, 240, 246, 0.05);
-      border: 1px dashed rgba(244, 114, 182, 0.35);
+      background: rgba(255, 240, 246, 0.08);
+      border: 1px dashed rgba(244, 114, 182, 0.45);
       padding: 12px;
       border-radius: 12px;
     }
@@ -358,6 +381,25 @@
       align-items: start;
     }
 
+    .btn.small {
+      padding: 8px 10px;
+      font-size: 12px;
+      box-shadow: none;
+    }
+
+    .form-hint {
+      grid-column: 1 / -1;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255, 240, 246, 0.08);
+      border: 1px solid rgba(244, 114, 182, 0.2);
+      color: #fef2f8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
     footer {
       text-align: center;
       color: #fbcfe8;
@@ -388,6 +430,7 @@
     </nav>
   </header>
 
+  <main>
   <section class="hero">
     <div>
       <div class="tag">Demo Workspace</div>
@@ -415,6 +458,10 @@
         <span class="pill" id="inventoryValue"></span>
       </div>
       <form id="inventoryForm">
+        <div class="form-hint">
+          <span id="formHintText">Add new items or click edit in the catalog.</span>
+          <button class="btn small secondary" type="button" id="cancelEdit" hidden>Cancel edit</button>
+        </div>
         <div>
           <label for="name">Item name</label>
           <input id="name" name="name" placeholder="E.g. Thermal Printer" required />
@@ -440,7 +487,7 @@
           <input type="number" id="price" name="price" min="0" step="0.01" value="199" required />
         </div>
         <div>
-          <button class="btn" type="submit">Add product</button>
+          <button class="btn" type="submit" id="inventorySubmit">Add product</button>
         </div>
       </form>
       <div class="responsive-two" style="margin-top: 14px">
@@ -452,18 +499,19 @@
           <div style="overflow-x: auto">
             <table>
               <thead>
-                <tr>
-                  <th>Item</th>
-                  <th>SKU</th>
-                  <th>Category</th>
-                  <th>Stock</th>
-                  <th>Cost</th>
-                  <th>Price</th>
-                </tr>
-              </thead>
-              <tbody id="inventoryTable"></tbody>
-            </table>
-          </div>
+              <tr>
+                <th>Item</th>
+                <th>SKU</th>
+                <th>Category</th>
+                <th>Stock</th>
+                <th>Cost</th>
+                <th>Price</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="inventoryTable"></tbody>
+          </table>
+        </div>
         </div>
         <div class="panel" style="padding: 12px">
           <div class="section-title">
@@ -582,6 +630,8 @@
     </div>
   </section>
 
+  </main>
+
   <footer>
     Built for the prompt: accounting + inventory + POS. Data is ephemeral; refresh to start over.
   </footer>
@@ -625,6 +675,11 @@
     const flowTag = document.getElementById('flowTag');
     const miniChart = document.getElementById('miniChart');
     const flowChart = document.getElementById('flowChart');
+    const inventoryForm = document.getElementById('inventoryForm');
+    const inventorySubmit = document.getElementById('inventorySubmit');
+    const cancelEdit = document.getElementById('cancelEdit');
+    const formHintText = document.getElementById('formHintText');
+    let editingSku = null;
 
     const renderStats = () => {
       const revenue = state.ledger.filter((e) => e.type === 'Income').reduce((sum, e) => sum + e.amount, 0);
@@ -668,6 +723,30 @@
         .join('');
     };
 
+    const setFormMode = (mode, item) => {
+      if (mode === 'edit' && item) {
+        editingSku = item.sku;
+        inventoryForm.name.value = item.name;
+        inventoryForm.sku.value = item.sku;
+        inventoryForm.category.value = item.category;
+        inventoryForm.stock.value = item.stock;
+        inventoryForm.cost.value = item.cost;
+        inventoryForm.price.value = item.price;
+        inventorySubmit.textContent = 'Save changes';
+        formHintText.textContent = `Editing ${item.name} (${item.sku})`;
+        cancelEdit.hidden = false;
+      } else {
+        editingSku = null;
+        inventoryForm.reset();
+        inventoryForm.stock.value = 10;
+        inventoryForm.cost.value = 120;
+        inventoryForm.price.value = 199;
+        inventorySubmit.textContent = 'Add product';
+        formHintText.textContent = 'Add new items or click edit in the catalog.';
+        cancelEdit.hidden = true;
+      }
+    };
+
     const renderInventory = () => {
       catalogCount.textContent = `${state.inventory.length} products`;
       inventoryTable.innerHTML = state.inventory
@@ -680,6 +759,7 @@
               <td><span class="badge ${item.stock < 8 ? 'warning' : 'success'}">${item.stock} on hand</span></td>
               <td>${formatCurrency(item.cost)}</td>
               <td>${formatCurrency(item.price)}</td>
+              <td><button class="btn small secondary" data-action="edit" data-sku="${item.sku}">Edit</button></td>
             </tr>
           `
         )
@@ -864,7 +944,16 @@
       renderMiniChart(flowChart, [income / 500, expense / 500, profit / 500, Math.max(0, profit) / 500, income / 700, expense / 700]);
     };
 
-    document.getElementById('inventoryForm').addEventListener('submit', (e) => {
+    inventoryTable.addEventListener('click', (e) => {
+      const btn = e.target.closest('button[data-action="edit"]');
+      if (!btn) return;
+      const item = state.inventory.find((i) => i.sku === btn.dataset.sku);
+      if (item) setFormMode('edit', item);
+    });
+
+    cancelEdit.addEventListener('click', () => setFormMode('add'));
+
+    inventoryForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const form = e.target;
       const payload = {
@@ -875,8 +964,26 @@
         cost: Number(form.cost.value),
         price: Number(form.price.value)
       };
-      state.inventory.push(payload);
-      form.reset();
+
+      const duplicateSku = state.inventory.some((i) => i.sku === payload.sku && i.sku !== editingSku);
+      if (duplicateSku) {
+        alert('SKU must be unique.');
+        return;
+      }
+
+      if (editingSku) {
+        const idx = state.inventory.findIndex((i) => i.sku === editingSku);
+        if (idx !== -1) {
+          state.inventory[idx] = payload;
+          state.cart = state.cart.map((line) =>
+            line.sku === editingSku ? { ...line, sku: payload.sku, qty: Math.min(line.qty, payload.stock) } : line
+          );
+        }
+      } else {
+        state.inventory.push(payload);
+      }
+
+      setFormMode('add');
       renderInventory();
       renderProducts();
       renderStats();
@@ -937,6 +1044,7 @@
       URL.revokeObjectURL(data);
     });
 
+    setFormMode('add');
     renderInventory();
     renderProducts();
     renderStats();
